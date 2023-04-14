@@ -1,0 +1,188 @@
+[gd_scene load_steps=23 format=3 uid="uid://vpy637uo1u5s"]
+
+[ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
+[ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
+[ext_resource type="PackedScene" uid="uid://bbg0dxle4g1tc" path="res://Escenas/player.tscn" id="2_j3oh2"]
+[ext_resource type="PackedScene" uid="uid://b06sp8jyxe4e2" path="res://Escenas/key.tscn" id="3_moo0h"]
+[ext_resource type="Script" path="res://Scripts/UIscript.gd" id="5_1fsjc"]
+[ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="6_6ct2o"]
+[ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="6_vg22x"]
+[ext_resource type="Texture2D" uid="uid://cm3f5hfahbgfn" path="res://Assets/Tilesetmonochromy.png" id="8_8ygkf"]
+[ext_resource type="Script" path="res://Scripts/Chest.gd" id="9_dbux8"]
+[ext_resource type="Texture2D" uid="uid://4j6a3xba7oot" path="res://Assets/chest_closed.png" id="11_3ruer"]
+[ext_resource type="Texture2D" uid="uid://jpwkif8e81v0" path="res://Assets/Chest_open.png" id="12_dkjh4"]
+[ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
+[ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmlpi"]
+texture = ExtResource("8_8ygkf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rr0qq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cffgq"]
+texture = SubResource("CompressedTexture2D_rr0qq")
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ogw1u"]
+sources/1 = SubResource("TileSetAtlasSource_vmlpi")
+sources/3 = SubResource("TileSetAtlasSource_cffgq")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2yqm"]
+size = Vector2(1986, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pe64d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3ruer")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_dkjh4")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdgyk"]
+size = Vector2(163.5, 260.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv8ck"]
+size = Vector2(64, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg47d"]
+size = Vector2(56, 45.375)
+
+[node name="Level 1" type="Node2D"]
+script = ExtResource("1_4anx1")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(964, 541.5)
+scale = Vector2(0.962891, 0.940104)
+texture = ExtResource("2_c1mje")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(976, 600)
+
+[node name="Player" parent="." instance=ExtResource("2_j3oh2")]
+position = Vector2(98, 919)
+scale = Vector2(2.5, 2.5)
+
+[node name="Key" parent="." instance=ExtResource("3_moo0h")]
+position = Vector2(381, 943)
+scale = Vector2(6, 6)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_1fsjc")
+
+[node name="KeyUI" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(114, 166)
+scale = Vector2(6, 6)
+texture = ExtResource("6_6ct2o")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 149.0
+offset_top = 132.0
+offset_right = 271.0
+offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("6_vg22x")
+theme_override_font_sizes/font_size = 35
+
+[node name="LiveUI" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(294, 160)
+scale = Vector2(7, 7)
+texture = ExtResource("14_6smgm")
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 344.0
+offset_top = 135.0
+offset_right = 451.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("6_vg22x")
+theme_override_font_sizes/font_size = 35
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_ogw1u")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 983065, 262145, 0)
+
+[node name="Suelo" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
+position = Vector2(992, 1055)
+shape = SubResource("RectangleShape2D_a2yqm")
+
+[node name="Chest" type="Area2D" parent="."]
+script = ExtResource("9_dbux8")
+metadata/_edit_lock_ = true
+
+[node name="Animation" type="AnimatedSprite2D" parent="Chest"]
+position = Vector2(818, 958)
+scale = Vector2(5, 5.975)
+sprite_frames = SubResource("SpriteFrames_pe64d")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
+position = Vector2(814.25, 894)
+shape = SubResource("RectangleShape2D_pdgyk")
+
+[node name="Chest2" type="Area2D" parent="."]
+script = ExtResource("9_dbux8")
+metadata/_edit_lock_ = true
+
+[node name="Animation" type="AnimatedSprite2D" parent="Chest2"]
+position = Vector2(1348, 959)
+scale = Vector2(5, 5.975)
+sprite_frames = SubResource("SpriteFrames_pe64d")
+animation = &"closed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
+position = Vector2(1347, 892)
+shape = SubResource("RectangleShape2D_pdgyk")
+
+[node name="Key2" parent="." instance=ExtResource("3_moo0h")]
+position = Vector2(1025, 941)
+
+[node name="Spike" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(1632, 1006)
+shape = SubResource("RectangleShape2D_nv8ck")
+
+[node name="Live" type="Area2D" parent="."]
+position = Vector2(8, 2)
+script = ExtResource("12_xivp1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Live"]
+position = Vector2(1807, 1001)
+scale = Vector2(5.08, 5)
+texture = ExtResource("14_6smgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Live"]
+position = Vector2(1807, 1000.69)
+shape = SubResource("RectangleShape2D_gg47d")
+
+[connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
+[connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
+[connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]
+[connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
