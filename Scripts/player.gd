@@ -5,10 +5,11 @@ var direccion := 0.0
 var jump := 500
 var lives := 3
 const gravity := 15.5
+var died : bool = false
 
 @onready var sprite := $Sprite2D
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var chests = get_parent().chests
 	direccion = Input.get_axis("ui_left","ui_right")
 	if chests >= 2 and Input.is_key_pressed(KEY_SHIFT):
@@ -26,8 +27,5 @@ func _physics_process(_delta):
 	sprite.flip_h = direccion < 0 if direccion != 0 else sprite.flip_h
 	
 	move_and_slide()
+	
 
-func _on_spike_body_entered(body):
-	if body.is_in_group("player"):
-		get_parent().lives -= 1
-		queue_free()

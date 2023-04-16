@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=26 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
-[ext_resource type="PackedScene" uid="uid://bbg0dxle4g1tc" path="res://Escenas/player.tscn" id="2_j3oh2"]
 [ext_resource type="PackedScene" uid="uid://b06sp8jyxe4e2" path="res://Escenas/key.tscn" id="3_moo0h"]
 [ext_resource type="Script" path="res://Scripts/UIscript.gd" id="5_1fsjc"]
 [ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="6_6ct2o"]
@@ -12,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://4j6a3xba7oot" path="res://Assets/chest_closed.png" id="11_3ruer"]
 [ext_resource type="Texture2D" uid="uid://jpwkif8e81v0" path="res://Assets/Chest_open.png" id="12_dkjh4"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
+[ext_resource type="Texture2D" uid="uid://b7vlffb4tn0au" path="res://icon.svg" id="13_1x0jw"]
+[ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmlpi"]
@@ -64,27 +65,39 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdgyk"]
 size = Vector2(163.5, 260.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv8ck"]
-size = Vector2(64, 36)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg47d"]
 size = Vector2(56, 45.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
+size = Vector2(127, 124)
+
+[sub_resource type="GDScript" id="GDScript_rd2n1"]
+script/source = "extends Area2D
+
+func _on_body_entered(body):
+	if body.is_in_group(\"player\"):
+		body.queue_free()
+		get_parent().aparecer()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv8ck"]
+size = Vector2(64, 41)
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_4anx1")
 metadata/_edit_horizontal_guides_ = []
 
+[node name="SpawnPlayer" type="Node2D" parent="."]
+position = Vector2(122, 899)
+
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(964, 541.5)
+position = Vector2(987, 562)
 scale = Vector2(0.962891, 0.940104)
 texture = ExtResource("2_c1mje")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(976, 600)
-
-[node name="Player" parent="." instance=ExtResource("2_j3oh2")]
-position = Vector2(98, 919)
-scale = Vector2(2.5, 2.5)
 
 [node name="Key" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(381, 943)
@@ -162,12 +175,6 @@ shape = SubResource("RectangleShape2D_pdgyk")
 [node name="Key2" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(1025, 941)
 
-[node name="Spike" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
-position = Vector2(1632, 1006)
-shape = SubResource("RectangleShape2D_nv8ck")
-
 [node name="Live" type="Area2D" parent="."]
 position = Vector2(8, 2)
 script = ExtResource("12_xivp1")
@@ -181,8 +188,28 @@ texture = ExtResource("14_6smgm")
 position = Vector2(1807, 1000.69)
 shape = SubResource("RectangleShape2D_gg47d")
 
+[node name="Checkpoint" type="Area2D" parent="."]
+position = Vector2(547, 919)
+script = ExtResource("13_at80y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
+position = Vector2(22, 34)
+texture = ExtResource("13_1x0jw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
+position = Vector2(21, 37)
+shape = SubResource("RectangleShape2D_ctoh5")
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(928, 296)
+script = SubResource("GDScript_rd2n1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(704, 711.5)
+shape = SubResource("RectangleShape2D_nv8ck")
+
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
-[connection signal="body_entered" from="Spike" to="Player" method="_on_spike_body_entered"]
-[connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]
 [connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]
