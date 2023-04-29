@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cirgteawth7l0"
-path="res://.godot/imported/mrwhitestatic.png-de97f6e0529beadb43eb7084223a8a68.ctex"
+uid="uid://bfybbr4085lw6"
+path="res://.godot/imported/mrwhitewalking_and_jumping.png-49d207fd750ff347455180d31f813d13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/mrwhitestatic.png"
-dest_files=["res://.godot/imported/mrwhitestatic.png-de97f6e0529beadb43eb7084223a8a68.ctex"]
+source_file="res://Assets/mrwhitewalking_and_jumping.png"
+dest_files=["res://.godot/imported/mrwhitewalking_and_jumping.png-49d207fd750ff347455180d31f813d13.ctex"]
 
 [params]
 

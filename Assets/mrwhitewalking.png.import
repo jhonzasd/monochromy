@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfylnr037fch"
-path="res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"
+uid="uid://b8dtvb85oemc8"
+path="res://.godot/imported/mrwhitewalking.png-14b11b067b12b5c86fceddf308ead964.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesetmonochromy.png"
-dest_files=["res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"]
+source_file="res://Assets/mrwhitewalking.png"
+dest_files=["res://.godot/imported/mrwhitewalking.png-14b11b067b12b5c86fceddf308ead964.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfylnr037fch"
-path="res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"
+uid="uid://cfhlmjjj4ocmb"
+path="res://.godot/imported/Blaki.png-41bc94f1eac2238afe31a8610e3ca28d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tilesetmonochromy.png"
-dest_files=["res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"]
+source_file="res://Assets/Blaki.png"
+dest_files=["res://.godot/imported/Blaki.png-41bc94f1eac2238afe31a8610e3ca28d.ctex"]
 
 [params]
 

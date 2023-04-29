@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqyonof3new3s"]
+
+[ext_resource type="Script" path="res://Scripts/blaki.gd" id="1_cuiwl"]
+[ext_resource type="Texture2D" uid="uid://cfhlmjjj4ocmb" path="res://Assets/Blaki.png" id="2_l0bvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdd36"]
+size = Vector2(95, 88)
+
+[node name="Blaki" type="CharacterBody2D"]
+visible = false
+position = Vector2(45, 4)
+script = ExtResource("1_cuiwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(598, 552)
+scale = Vector2(6, 6)
+texture = ExtResource("2_l0bvs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(598.5, 551)
+shape = SubResource("RectangleShape2D_mdd36")
