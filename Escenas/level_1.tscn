@@ -82,6 +82,7 @@ func _on_body_entered(body):
 		get_parent().lives -= 1
 		body.queue_free()
 		get_parent().aparecer()
+		get_parent().died = true
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nv8ck"]
@@ -99,12 +100,12 @@ metadata/_edit_horizontal_guides_ = []
 
 [node name="SpawnPlayer" type="Node2D" parent="."]
 position = Vector2(127, 400)
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(1936, 562)
-scale = Vector2(1.88965, 0.940104)
+position = Vector2(1929.5, 534.75)
+scale = Vector2(1.896, 0.987413)
 texture = ExtResource("2_c1mje")
-metadata/_edit_lock_ = true
 
 [node name="Key" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(381, 943)
@@ -196,16 +197,18 @@ position = Vector2(1807, 1001)
 shape = SubResource("RectangleShape2D_gg47d")
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(547, 919)
+position = Vector2(562, 792)
 script = ExtResource("13_at80y")
 
 [node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
 position = Vector2(22, 34)
 texture = ExtResource("13_1x0jw")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
 position = Vector2(21, 37)
 shape = SubResource("RectangleShape2D_ctoh5")
+metadata/_edit_lock_ = true
 
 [node name="Spike" type="Area2D" parent="."]
 position = Vector2(928, 296)
@@ -224,9 +227,6 @@ shape = SubResource("RectangleShape2D_pyjgk")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Plataformas"]
 position = Vector2(2623, 927)
 shape = SubResource("RectangleShape2D_k1dbe")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(974, 584)
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]

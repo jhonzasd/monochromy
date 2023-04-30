@@ -25,11 +25,12 @@ func _physics_process(delta):
 		velocity.x = direccion * speed
 	
 	if chests > 0:
-		if is_on_floor() and Input. is_action_just_pressed("ui_accept"): 
+		if is_on_floor() and Input. is_action_just_pressed("ui_accept"):
 			velocity.y -= jump
 	
 		if !is_on_floor():
-			pass
+			animation.play("jump")
+			
 	velocity.y += gravity
 	
 	sprite.flip_h = direccion < 0 if direccion != 0 else sprite.flip_h
