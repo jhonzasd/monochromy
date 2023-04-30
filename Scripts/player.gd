@@ -20,6 +20,7 @@ func _physics_process(delta):
 		animation.play("iddle")
 	if chests >= 2 and Input.is_key_pressed(KEY_SHIFT):
 		velocity.x = direccion * speed * 2
+		animation.speed_scale = 2.5
 	else:
 		velocity.x = direccion * speed
 	
