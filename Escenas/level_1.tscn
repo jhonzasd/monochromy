@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=30 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
@@ -92,7 +92,13 @@ size = Vector2(64, 34)
 size = Vector2(258, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1dbe"]
-size = Vector2(256, 61)
+size = Vector2(250, 58.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud1tn"]
+size = Vector2(317, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2wfp"]
+size = Vector2(63, 61)
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_4anx1")
@@ -106,6 +112,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1929.5, 534.75)
 scale = Vector2(1.896, 0.987413)
 texture = ExtResource("2_c1mje")
+metadata/_edit_lock_ = true
 
 [node name="Key" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(381, 943)
@@ -144,7 +151,7 @@ theme_override_font_sizes/font_size = 35
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ogw1u")
 format = 2
-layer_0/tile_data = PackedInt32Array(1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 983065, 262145, 0, 1048607, 1, 0, 1048608, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1048612, 1, 0, 1048613, 1, 0, 1048614, 1, 0, 1048615, 1, 0, 1048616, 1, 0, 1048617, 1, 0, 1048618, 1, 0, 1048619, 1, 0, 1048620, 1, 0, 1048621, 1, 0, 1048622, 1, 0, 1048623, 1, 0, 1048624, 1, 0, 1048625, 1, 0, 1048626, 1, 0, 1048627, 1, 0, 1048628, 1, 0, 1048629, 1, 0, 1048630, 1, 0, 1048631, 1, 0, 1048632, 1, 0, 983074, 1, 0, 983075, 1, 0, 983076, 1, 0, 983077, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0)
+layer_0/tile_data = PackedInt32Array(1048632, 1, 0, 917560, 1, 0, 1048631, 1, 0, 917559, 1, 0, 1048630, 1, 0, 917558, 1, 0, 917557, 1, 0, 917556, 1, 0, 1048629, 1, 0, 1048628, 1, 0, 1048627, 1, 0, 786487, 1, 0, 720950, 1, 0, 655413, 1, 0, 589876, 1, 0, 524339, 1, 0, 983090, 1, 0, 1048626, 1, 0, 1048625, 1, 0, 917553, 1, 0, 1048624, 1, 0, 852016, 1, 0, 1048623, 1, 0, 1048622, 1, 0, 1048621, 1, 0, 852014, 1, 0, 852015, 1, 0, 852013, 1, 0, 852012, 1, 0, 1048620, 1, 0, 1048619, 1, 0, 1048618, 1, 0, 1048617, 1, 0, 1048616, 1, 0, 1048615, 1, 0, 917546, 1, 0, 917545, 1, 0, 917544, 1, 0, 917543, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048614, 1, 0, 1048613, 1, 0, 983077, 1, 0, 983076, 1, 0, 1048611, 1, 0, 1048610, 1, 0, 983075, 1, 0, 1048612, 1, 0, 983074, 1, 0, 1048609, 1, 0, 1048608, 1, 0, 1048607, 1, 0, 1048606, 1, 0, 1048605, 1, 0, 1048604, 1, 0, 1048603, 1, 0, 1048602, 1, 0, 1048601, 1, 0, 1048600, 1, 0, 983065, 262145, 0, 1048599, 1, 0, 1048598, 1, 0, 1048597, 1, 0, 1048596, 1, 0, 1048595, 1, 0, 1048594, 1, 0, 1048593, 1, 0, 1048592, 1, 0, 1048591, 1, 0, 1048590, 1, 0, 1048589, 1, 0, 1048588, 1, 0, 1048587, 1, 0, 1048586, 1, 0, 1048585, 1, 0, 1048584, 1, 0, 1048581, 1, 0, 1048576, 1, 0, 1048580, 1, 0, 1048579, 1, 0, 1048578, 1, 0, 1048577, 1, 0)
 
 [node name="Suelo" type="StaticBody2D" parent="."]
 
@@ -225,8 +232,48 @@ position = Vector2(2305, 990)
 shape = SubResource("RectangleShape2D_pyjgk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Plataformas"]
-position = Vector2(2623, 927)
+position = Vector2(2620, 925.75)
 shape = SubResource("RectangleShape2D_k1dbe")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3489.5, 931.5)
+shape = SubResource("RectangleShape2D_ud1tn")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3489, 735)
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3422, 671)
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3360, 605)
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3296, 544)
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3552, 800)
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3169, 927)
+rotation = 6.28319
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Plataformas"]
+position = Vector2(3232, 992)
+rotation = 6.28319
+scale = Vector2(1.13457, 1)
+shape = SubResource("RectangleShape2D_w2wfp")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Plataformas"]
+visible = false
+position = Vector2(2976, 862)
+shape = SubResource("RectangleShape2D_ud1tn")
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
