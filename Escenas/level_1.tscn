@@ -266,7 +266,7 @@ position = Vector2(2623, 927)
 shape = SubResource("RectangleShape2D_k1dbe")
 
 [node name="Enemy" parent="." instance=ExtResource("14_jysg7")]
-position = Vector2(614, 985)
+position = Vector2(1900, 988)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
