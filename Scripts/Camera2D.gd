@@ -1,7 +1,6 @@
 extends Camera2D
 
 
-
 var player
 
 func _ready():

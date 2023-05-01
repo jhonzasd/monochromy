@@ -1,15 +1,23 @@
 extends CharacterBody2D
 
+var speed: int = 100
+
 @onready var sprite = $Sprite2D
-# Called when the node enters the scene tree for the first time.
+@onready var animation = $AnimationPlayer
+
 func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	velocity.x = -speed
+	
 func _physics_process(delta):
-	pass
-	#if Input.is_action_pressed("ui_accept"):
-		#sprite.flip_h = true
-	#else:
-		#sprite.flip_h = false
+	if is_on_wall():
+		if !sprite.flip_h: # Está mirando a la izquierda
+			velocity.x = speed
+		else:
+			velocity.x = -speed
+			
+	move_and_slide()
+	if velocity.x < 0: # Está mirando a la izquierda
+		sprite.flip_h = false
+	elif velocity.x > 0: # Está mirando a la derecha
+		sprite.flip_h = true
+	animation.play("iddle")

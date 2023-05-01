@@ -1,23 +1,113 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqyonof3new3s"]
+[gd_scene load_steps=9 format=3 uid="uid://d1mvv8ryuntuk"]
 
-[ext_resource type="Script" path="res://Scripts/blaki.gd" id="1_cuiwl"]
-[ext_resource type="Texture2D" uid="uid://cfhlmjjj4ocmb" path="res://Assets/Blaki.png" id="2_l0bvs"]
+[ext_resource type="Texture2D" uid="uid://bkv3j5whwvkwo" path="res://Assets/Blaki-spritesheet.png" id="1_811gn"]
+[ext_resource type="Script" path="res://Scripts/Blaki.gd" id="1_v28wq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdd36"]
-size = Vector2(95, 88)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lh0k"]
+size = Vector2(64, 63)
 
-[node name="Blaki" type="CharacterBody2D"]
-visible = false
-position = Vector2(45, 4)
-script = ExtResource("1_cuiwl")
+[sub_resource type="Animation" id="Animation_mw31c"]
+resource_name = "Die"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_4lliw"]
+resource_name = "FollowPlayer"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_fjg83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_wehuf"]
+resource_name = "iddle"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ux1eo"]
+_data = {
+"Die": SubResource("Animation_mw31c"),
+"FollowPlayer": SubResource("Animation_4lliw"),
+"RESET": SubResource("Animation_fjg83"),
+"iddle": SubResource("Animation_wehuf")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_v28wq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(598, 552)
-scale = Vector2(6, 6)
-texture = ExtResource("2_l0bvs")
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_811gn")
+hframes = 2
+vframes = 4
+frame = 2
+
+[node name="FloorDetection" type="RayCast2D" parent="Sprite2D"]
+position = Vector2(-7.77778, 0.222222)
+target_position = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(598.5, 551)
-shape = SubResource("RectangleShape2D_mdd36")
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_2lh0k")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_ux1eo")
+}
+
+[node name="LeftRay" type="RayCast2D" parent="."]
+target_position = Vector2(-45, 0)
+metadata/_edit_lock_ = true
+
+[node name="RightRay" type="RayCast2D" parent="."]
+target_position = Vector2(45, 0)
+metadata/_edit_lock_ = true
