@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1mvv8ryuntuk"]
+[gd_scene load_steps=10 format=3 uid="uid://d1mvv8ryuntuk"]
 
 [ext_resource type="Texture2D" uid="uid://bkv3j5whwvkwo" path="res://Assets/Blaki-spritesheet.png" id="1_811gn"]
 [ext_resource type="Script" path="res://Scripts/Blaki.gd" id="1_v28wq"]
@@ -24,6 +24,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_fjg83"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
 
 [sub_resource type="Animation" id="Animation_wehuf"]
 resource_name = "iddle"
@@ -41,14 +53,34 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_whrek"]
+resource_name = "die"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ux1eo"]
 _data = {
 "FollowPlayer": SubResource("Animation_4lliw"),
 "RESET": SubResource("Animation_fjg83"),
+"die": SubResource("Animation_whrek"),
 "iddle": SubResource("Animation_wehuf")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_824yf"]
+size = Vector2(58, 9)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_v28wq")
@@ -59,7 +91,7 @@ texture = ExtResource("1_811gn")
 flip_h = true
 hframes = 2
 vframes = 4
-frame = 2
+frame = 4
 
 [node name="FloorDetection" type="RayCast2D" parent="Sprite2D"]
 position = Vector2(-7.77778, 0.222222)
@@ -83,3 +115,12 @@ metadata/_edit_lock_ = true
 [node name="RightRay" type="RayCast2D" parent="."]
 target_position = Vector2(200, 0)
 metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -32.5)
+shape = SubResource("RectangleShape2D_824yf")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

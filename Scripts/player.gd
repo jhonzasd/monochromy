@@ -36,5 +36,3 @@ func _physics_process(delta):
 	sprite.flip_h = direccion < 0 if direccion != 0 else sprite.flip_h
 	
 	move_and_slide()
-	
-
