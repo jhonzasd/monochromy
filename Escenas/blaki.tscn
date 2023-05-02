@@ -78,7 +78,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_824yf"]
-size = Vector2(58, 9)
+size = Vector2(54, 6)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
@@ -119,7 +119,7 @@ metadata/_edit_lock_ = true
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, -32.5)
+position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_824yf")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

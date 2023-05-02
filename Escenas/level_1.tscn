@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://4j6a3xba7oot" path="res://Assets/chest_closed.png" id="11_3ruer"]
 [ext_resource type="Texture2D" uid="uid://jpwkif8e81v0" path="res://Assets/Chest_open.png" id="12_dkjh4"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
-[ext_resource type="Texture2D" uid="uid://b7vlffb4tn0au" path="res://icon.svg" id="13_1x0jw"]
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
+[ext_resource type="Texture2D" uid="uid://d0re0xoy0ig3t" path="res://Assets/checkpoint.png" id="13_d65qp"]
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
 [ext_resource type="PackedScene" uid="uid://d1mvv8ryuntuk" path="res://Escenas/Blaki.tscn" id="14_jysg7"]
 [ext_resource type="PackedScene" uid="uid://cy82cy5ui0wmt" path="res://Escenas/portal.tscn" id="15_2ccp8"]
@@ -104,7 +104,7 @@ size = Vector2(163.5, 260.5)
 size = Vector2(56, 45.9975)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
-size = Vector2(127, 124)
+size = Vector2(128.5, 159)
 
 [sub_resource type="GDScript" id="GDScript_rd2n1"]
 script/source = "extends Area2D
@@ -141,6 +141,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1929.5, 534.75)
 scale = Vector2(1.896, 0.987413)
 texture = ExtResource("2_c1mje")
+metadata/_edit_lock_ = true
 
 [node name="Key" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(381, 943)
@@ -180,7 +181,7 @@ scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ogw1u")
 format = 2
 layer_0/name = "Tilemap"
-layer_0/tile_data = PackedInt32Array(1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 983065, 262145, 0, 1048607, 1, 0, 1048608, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1048612, 1, 0, 1048613, 1, 0, 1048614, 1, 0, 1048615, 1, 0, 1048616, 1, 0, 1048617, 1, 0, 1048618, 1, 0, 1048619, 1, 0, 1048620, 1, 0, 1048621, 1, 0, 1048622, 1, 0, 1048623, 1, 0, 1048624, 1, 0, 1048625, 1, 0, 1048626, 1, 0, 1048627, 1, 0, 1048628, 1, 0, 1048629, 1, 0, 1048630, 1, 0, 1048631, 1, 0, 1048632, 1, 0, 983074, 1, 0, 983075, 1, 0, 983076, 1, 0, 983077, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0, 1048579, 1, 0, 1048584, 1, 0, 1048583, 1, 0, 1048594, 1, 0, 1048593, 1, 0, 1048578, 1, 0, 1048577, 1, 0, 1048576, 1, 0)
+layer_0/tile_data = PackedInt32Array(983065, 262145, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1048608, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1048612, 1, 0, 983075, 1, 0, 983074, 1, 0, 983076, 1, 0, 983077, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0, 1048613, 1, 0, 1048614, 1, 0, 1048615, 1, 0, 1048616, 1, 0, 1048617, 1, 0, 1048618, 1, 0, 1048619, 1, 0, 1048620, 1, 0, 1048621, 1, 0, 1048622, 1, 0, 1048623, 1, 0, 1048629, 1, 0, 1048630, 1, 0, 1048631, 1, 0, 1048632, 1, 0, 1048628, 1, 0, 1048627, 1, 0, 1048626, 1, 0, 1048625, 1, 0, 1048624, 1, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0)
 
 [node name="Suelo" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -235,18 +236,18 @@ position = Vector2(1807, 1001)
 shape = SubResource("RectangleShape2D_gg47d")
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(562, 792)
+position = Vector2(553, 889)
 script = ExtResource("13_at80y")
 
 [node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
 position = Vector2(22, 34)
-texture = ExtResource("13_1x0jw")
+scale = Vector2(7, 7)
+texture = ExtResource("13_d65qp")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
-position = Vector2(21, 37)
+position = Vector2(21.75, 54.5)
 shape = SubResource("RectangleShape2D_ctoh5")
-metadata/_edit_lock_ = true
 
 [node name="Spike" type="Area2D" parent="."]
 position = Vector2(928, 296)
