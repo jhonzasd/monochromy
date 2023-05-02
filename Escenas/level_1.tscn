@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=31 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
 [ext_resource type="PackedScene" uid="uid://d1mvv8ryuntuk" path="res://Escenas/Blaki.tscn" id="14_jysg7"]
+[ext_resource type="PackedScene" uid="uid://cy82cy5ui0wmt" path="res://Escenas/portal.tscn" id="15_2ccp8"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjaqq"]
 load_path = "res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"
@@ -275,6 +276,10 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, 515)
 shape = SubResource("RectangleShape2D_qa813")
+
+[node name="Portal" parent="." instance=ExtResource("15_2ccp8")]
+position = Vector2(2837, 800)
+scale = Vector2(5, 5)
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
