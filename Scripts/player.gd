@@ -39,6 +39,8 @@ func _physics_process(delta):
 					cont_jump += 1
 					velocity.y -= jump
 					
+			if Input.is_action_just_released("ui_accept"):
+				velocity.y += 6000 * delta
 	
 		if !is_on_floor():
 			animation.play("jump")
