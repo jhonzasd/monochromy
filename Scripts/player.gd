@@ -6,6 +6,9 @@ var jump := 500
 var lives := 3
 const gravity := 18.5
 var died : bool = false
+# Doble salto:
+var cont_jump : int = 0
+var max_jump : int = 2
 
 @onready var sprite := $Sprite2D
 @onready var animation := $AnimationPlayer
@@ -25,12 +28,22 @@ func _physics_process(delta):
 		velocity.x = direccion * speed
 	
 	if chests > 0:
-		if is_on_floor() and Input. is_action_just_pressed("ui_accept"):
-			velocity.y -= jump
+		if is_on_floor():
+			cont_jump = 0
+			if Input. is_action_just_pressed("ui_accept"):
+				cont_jump += 1
+				velocity.y -= jump
+				
+		else:
+			if Input. is_action_just_pressed("ui_accept") and chests >= 3 and max_jump > cont_jump:
+					cont_jump += 1
+					velocity.y -= jump
+					
 	
 		if !is_on_floor():
 			animation.play("jump")
-			
+	if chests >= 3:
+		pass
 	velocity.y += gravity
 	
 	sprite.flip_h = direccion < 0 if direccion != 0 else sprite.flip_h

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=32 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="6_vg22x"]
 [ext_resource type="Script" path="res://Scripts/Chest.gd" id="9_dbux8"]
 [ext_resource type="Texture2D" uid="uid://4j6a3xba7oot" path="res://Assets/chest_closed.png" id="11_3ruer"]
+[ext_resource type="PackedScene" uid="uid://bvobdu6sd5fsv" path="res://Escenas/chest.tscn" id="11_4w3xq"]
 [ext_resource type="Texture2D" uid="uid://jpwkif8e81v0" path="res://Assets/Chest_open.png" id="12_dkjh4"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
@@ -219,6 +220,9 @@ animation = &"closed"
 position = Vector2(1347, 892)
 shape = SubResource("RectangleShape2D_pdgyk")
 
+[node name="Chest3" parent="." instance=ExtResource("11_4w3xq")]
+position = Vector2(1494, -65)
+
 [node name="Key2" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(1025, 941)
 
@@ -258,6 +262,8 @@ position = Vector2(704, 708)
 shape = SubResource("RectangleShape2D_nv8ck")
 
 [node name="Plataformas" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plataformas"]
 position = Vector2(2305, 990)
@@ -281,6 +287,9 @@ shape = SubResource("RectangleShape2D_qa813")
 [node name="Portal" parent="." instance=ExtResource("15_2ccp8")]
 position = Vector2(2837, 800)
 scale = Vector2(5, 5)
+
+[node name="Key3" parent="." instance=ExtResource("3_moo0h")]
+position = Vector2(2072, 928)
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
