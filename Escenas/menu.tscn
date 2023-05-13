@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2rop16rw61j0"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_5yugq"]
+[ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_ltlhj"]
+[ext_resource type="Texture2D" uid="uid://br4e57eib61r1" path="res://Assets/Monochromy - Diagrama de flujo - Página 1.png" id="3_vpuev"]
+[ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="4_dk4tb"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5yugq")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(940.5, 540.5)
+scale = Vector2(0.963379, 0.947049)
+texture = ExtResource("2_ltlhj")
+
+[node name="Monochromy" type="Sprite2D" parent="."]
+position = Vector2(953, 431)
+texture = ExtResource("3_vpuev")
+
+[node name="MarginContainer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 1926.0
+offset_bottom = 1073.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 750.0
+offset_top = 610.0
+offset_right = 1212.0
+offset_bottom = 843.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 11.81
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_dk4tb")
+theme_override_font_sizes/font_size = 50
+text = "start"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_dk4tb")
+theme_override_font_sizes/font_size = 50
+text = "quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
