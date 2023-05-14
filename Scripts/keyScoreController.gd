@@ -7,7 +7,7 @@ var died : bool = false
 
 var checkpoint = false # El jugador no ha llegado al checkpoint
 var player = load("res://Escenas/player.tscn")
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	aparecer()
 
@@ -16,5 +16,7 @@ func aparecer():
 	if !checkpoint:
 		newplayer.position = $SpawnPlayer.position
 	else:
-		newplayer.position = $Checkpoint.position
+		newplayer.position = checkpoint.position + Vector2(0, -100)
+		
 	add_child(newplayer)
+

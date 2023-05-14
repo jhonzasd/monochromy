@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=33 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
 [ext_resource type="PackedScene" uid="uid://b06sp8jyxe4e2" path="res://Escenas/key.tscn" id="3_moo0h"]
+[ext_resource type="Texture2D" uid="uid://b7vlffb4tn0au" path="res://icon.svg" id="4_31b13"]
 [ext_resource type="Script" path="res://Scripts/UIscript.gd" id="5_1fsjc"]
 [ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="6_6ct2o"]
 [ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="6_vg22x"]
@@ -16,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
 [ext_resource type="PackedScene" uid="uid://d1mvv8ryuntuk" path="res://Escenas/Blaki.tscn" id="14_jysg7"]
 [ext_resource type="PackedScene" uid="uid://cy82cy5ui0wmt" path="res://Escenas/portal.tscn" id="15_2ccp8"]
+[ext_resource type="Script" path="res://Scripts/spike.gd" id="15_ouvhg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjaqq"]
 load_path = "res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"
@@ -105,18 +107,7 @@ size = Vector2(163.5, 260.5)
 size = Vector2(56, 45.9975)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
-size = Vector2(128.5, 159)
-
-[sub_resource type="GDScript" id="GDScript_rd2n1"]
-script/source = "extends Area2D
-
-func _on_body_entered(body):
-	if body.is_in_group(\"player\"):
-		get_parent().lives -= 1
-		body.queue_free()
-		get_parent().aparecer()
-		get_parent().died = true
-"
+size = Vector2(238, 1417)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nv8ck"]
 size = Vector2(64, 34)
@@ -134,10 +125,6 @@ size = Vector2(70, 1026)
 script = ExtResource("1_4anx1")
 metadata/_edit_horizontal_guides_ = []
 
-[node name="SpawnPlayer" type="Node2D" parent="."]
-position = Vector2(127, 400)
-metadata/_edit_lock_ = true
-
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(1929.5, 534.75)
 scale = Vector2(1.896, 0.987413)
@@ -147,6 +134,15 @@ metadata/_edit_lock_ = true
 [node name="Key" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(381, 943)
 scale = Vector2(6, 6)
+
+[node name="SpawnPlayer" type="Node2D" parent="."]
+position = Vector2(142, 22)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPlayer"]
+position = Vector2(17, 2)
+scale = Vector2(1.00488, 1)
+texture = ExtResource("4_31b13")
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("5_1fsjc")
@@ -240,22 +236,40 @@ position = Vector2(1807, 1001)
 shape = SubResource("RectangleShape2D_gg47d")
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(553, 889)
+position = Vector2(601, 877)
 script = ExtResource("13_at80y")
+metadata/num = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
-position = Vector2(22, 34)
+position = Vector2(-5.99997, 43)
 scale = Vector2(7, 7)
 texture = ExtResource("13_d65qp")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
-position = Vector2(21.75, 54.5)
+position = Vector2(16, 722.5)
 shape = SubResource("RectangleShape2D_ctoh5")
+metadata/_edit_lock_ = true
+
+[node name="Checkpoint2" type="Area2D" parent="."]
+position = Vector2(2638, 752)
+script = ExtResource("13_at80y")
+metadata/num = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint2"]
+position = Vector2(-5.99997, 43)
+scale = Vector2(7, 7)
+texture = ExtResource("13_d65qp")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2"]
+position = Vector2(16, 722.5)
+shape = SubResource("RectangleShape2D_ctoh5")
+metadata/_edit_lock_ = true
 
 [node name="Spike" type="Area2D" parent="."]
 position = Vector2(928, 296)
-script = SubResource("GDScript_rd2n1")
+script = ExtResource("15_ouvhg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
 position = Vector2(704, 708)
@@ -295,4 +309,5 @@ position = Vector2(2072, 928)
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
 [connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
+[connection signal="body_entered" from="Checkpoint2" to="Checkpoint2" method="_on_body_entered"]
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]

@@ -12,6 +12,7 @@ var max_jump : int = 2
 
 @onready var sprite := $Sprite2D
 @onready var animation := $AnimationPlayer
+@onready var particles := $CPUParticles2D
 
 func _physics_process(delta):
 	var chests = get_parent().chests
