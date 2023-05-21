@@ -1,23 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://qgrocpmw3v1d"]
+[gd_scene load_steps=9 format=3 uid="uid://qgrocpmw3v1d"]
 
-[ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="1_u4npk"]
-[ext_resource type="Texture2D" uid="uid://d0re0xoy0ig3t" path="res://Assets/checkpoint.png" id="2_js3hp"]
+[ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="1_jmj83"]
+[ext_resource type="Texture2D" uid="uid://ceqxtmilhrh6k" path="res://Assets/checkpoint-sheet-sheet.png" id="2_phusn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
-size = Vector2(128.5, 159)
+size = Vector2(238, 160)
+
+[sub_resource type="Animation" id="Animation_r5ws1"]
+resource_name = "iddle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rlmet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f5144"]
+resource_name = "grab"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 7, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_umgdv"]
+resource_name = "iddle2"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 15, 16, 17, 18, 18, 19]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f52e"]
+_data = {
+"RESET": SubResource("Animation_rlmet"),
+"grab": SubResource("Animation_f5144"),
+"iddle": SubResource("Animation_r5ws1"),
+"iddle2": SubResource("Animation_umgdv")
+}
 
 [node name="Checkpoint" type="Area2D"]
-position = Vector2(553, 889)
-script = ExtResource("1_u4npk")
+position = Vector2(601, 877)
+script = ExtResource("1_jmj83")
+metadata/num = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(22, 34)
+position = Vector2(-5.99997, 43)
 scale = Vector2(7, 7)
-texture = ExtResource("2_js3hp")
+texture = ExtResource("2_phusn")
+hframes = 20
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21.75, 54.5)
+position = Vector2(16, 66)
 shape = SubResource("RectangleShape2D_ctoh5")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_3f52e")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

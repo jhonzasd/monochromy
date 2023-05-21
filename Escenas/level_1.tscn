@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=38 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
@@ -13,10 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://jpwkif8e81v0" path="res://Assets/Chest_open.png" id="12_dkjh4"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
-[ext_resource type="Texture2D" uid="uid://d0re0xoy0ig3t" path="res://Assets/checkpoint.png" id="13_d65qp"]
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
 [ext_resource type="PackedScene" uid="uid://d1mvv8ryuntuk" path="res://Escenas/Blaki.tscn" id="14_jysg7"]
 [ext_resource type="PackedScene" uid="uid://cy82cy5ui0wmt" path="res://Escenas/portal.tscn" id="15_2ccp8"]
+[ext_resource type="Texture2D" uid="uid://ceqxtmilhrh6k" path="res://Assets/checkpoint-sheet-sheet.png" id="15_7oy8a"]
 [ext_resource type="Script" path="res://Scripts/spike.gd" id="15_ouvhg"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjaqq"]
@@ -107,7 +107,77 @@ size = Vector2(163.5, 260.5)
 size = Vector2(56, 45.9975)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
-size = Vector2(238, 1417)
+size = Vector2(238, 160)
+
+[sub_resource type="Animation" id="Animation_r5ws1"]
+resource_name = "iddle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rlmet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f5144"]
+resource_name = "grab"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 7, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_umgdv"]
+resource_name = "iddle2"
+length = 2.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 15, 16, 17, 18, 18, 19]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3f52e"]
+_data = {
+"RESET": SubResource("Animation_rlmet"),
+"grab": SubResource("Animation_f5144"),
+"iddle": SubResource("Animation_r5ws1"),
+"iddle2": SubResource("Animation_umgdv")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nv8ck"]
 size = Vector2(64, 34)
@@ -236,36 +306,50 @@ position = Vector2(1807, 1001)
 shape = SubResource("RectangleShape2D_gg47d")
 
 [node name="Checkpoint" type="Area2D" parent="."]
-position = Vector2(601, 877)
+position = Vector2(596, 880)
 script = ExtResource("13_at80y")
 metadata/num = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
 position = Vector2(-5.99997, 43)
 scale = Vector2(7, 7)
-texture = ExtResource("13_d65qp")
+texture = ExtResource("15_7oy8a")
+hframes = 20
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint"]
-position = Vector2(16, 722.5)
+position = Vector2(16, 66)
 shape = SubResource("RectangleShape2D_ctoh5")
 metadata/_edit_lock_ = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Checkpoint"]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_3f52e")
+}
+
 [node name="Checkpoint2" type="Area2D" parent="."]
-position = Vector2(2638, 752)
+position = Vector2(2632, 752)
 script = ExtResource("13_at80y")
 metadata/num = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Checkpoint2"]
 position = Vector2(-5.99997, 43)
 scale = Vector2(7, 7)
-texture = ExtResource("13_d65qp")
+texture = ExtResource("15_7oy8a")
+hframes = 20
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint2"]
-position = Vector2(16, 722.5)
+position = Vector2(16, 66)
 shape = SubResource("RectangleShape2D_ctoh5")
 metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Checkpoint2"]
+speed_scale = 2.0
+libraries = {
+"": SubResource("AnimationLibrary_3f52e")
+}
 
 [node name="Spike" type="Area2D" parent="."]
 position = Vector2(928, 296)
@@ -309,5 +393,7 @@ position = Vector2(2072, 928)
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
 [connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
+[connection signal="animation_finished" from="Checkpoint/AnimationPlayer" to="Checkpoint" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Checkpoint2" to="Checkpoint2" method="_on_body_entered"]
+[connection signal="animation_finished" from="Checkpoint2/AnimationPlayer" to="Checkpoint2" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Spike" to="Spike" method="_on_body_entered"]
