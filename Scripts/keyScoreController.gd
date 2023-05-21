@@ -8,10 +8,14 @@ var died : bool = false
 var checkpoint = false # El jugador no ha llegado al checkpoint
 var player = load("res://Escenas/player.tscn")
 
-func _ready():
-	aparecer()
+var gema_salto = false # El jugador no ha llegado a la gema
+var gema = load("res://Escenas/gema_salto.tscn")
 
-func aparecer():
+func _ready():
+	respawn()
+	aparecer_gema()
+
+func respawn():
 	var newplayer = player.instantiate()
 	if !checkpoint:
 		newplayer.position = $SpawnPlayer.position
@@ -20,3 +24,10 @@ func aparecer():
 		
 	add_child(newplayer)
 
+
+func aparecer_gema():
+	var newgema = gema.instantiate()
+	if gema_salto == true:
+		newgema.position = $SpawnGemaSalto.position
+		
+		add_child(newgema)

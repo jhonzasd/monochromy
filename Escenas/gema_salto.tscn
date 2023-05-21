@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnfl4shllb47x"]
+
+[ext_resource type="Script" path="res://Scripts/GemaSalto.gd" id="1_rfdip"]
+[ext_resource type="Texture2D" uid="uid://bjuoosw1ff0b4" path="res://Assets/gemasalto.png" id="2_mxh2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yr7vn"]
+radius = 41.0122
+
+[node name="GemaSalto" type="CharacterBody2D"]
+script = ExtResource("1_rfdip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_mxh2y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yr7vn")

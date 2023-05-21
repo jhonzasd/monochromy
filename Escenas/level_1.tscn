@@ -389,6 +389,13 @@ scale = Vector2(5, 5)
 [node name="Key3" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(2072, 928)
 
+[node name="SpawnGemaSalto" type="Node2D" parent="."]
+position = Vector2(737, 821)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnGemaSalto"]
+texture = ExtResource("4_31b13")
+metadata/_edit_lock_ = true
+
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
 [connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
