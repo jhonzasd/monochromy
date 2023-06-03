@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lh0k"]
 size = Vector2(64, 63)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_824yf"]
+size = Vector2(54, 6)
+
 [sub_resource type="Animation" id="Animation_4lliw"]
 resource_name = "FollowPlayer"
 length = 0.9
@@ -77,10 +80,7 @@ _data = {
 "iddle": SubResource("Animation_wehuf")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_824yf"]
-size = Vector2(54, 6)
-
-[node name="Enemy" type="CharacterBody2D" groups=["Enemy"]]
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_v28wq")
@@ -94,19 +94,13 @@ vframes = 4
 frame = 4
 
 [node name="FloorDetection" type="RayCast2D" parent="Sprite2D"]
-position = Vector2(-7.77778, 0.222222)
+position = Vector2(-7.77778, 0)
 target_position = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_2lh0k")
 metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-speed_scale = 1.5
-libraries = {
-"": SubResource("AnimationLibrary_ux1eo")
-}
 
 [node name="LeftRay" type="RayCast2D" parent="."]
 target_position = Vector2(-200, 0)
@@ -122,5 +116,11 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_824yf")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 1.5
+libraries = {
+"": SubResource("AnimationLibrary_ux1eo")
+}
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

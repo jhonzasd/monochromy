@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed: int = 50
 var follow : bool = false
 var speed_follow = 100
+var play_die_animation = false
+
 @onready var sprite = $Sprite2D
 @onready var animation = $AnimationPlayer
 
@@ -51,4 +53,4 @@ func detect():
 
 func _on_area_2d_body_entered(body): # Al tocarlo por arriba muere
 	if body.is_in_group("player"):
-		animation.play("die")
+		queue_free()

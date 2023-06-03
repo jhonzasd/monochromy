@@ -1,6 +1,9 @@
 extends Node2D
 
 var gema_salto : bool = false
+var gema_correr : bool = false
+var gema_doble_salto : bool = false
+
 var keys : int = 0
 var chests : int = 0
 var lives : int = 3

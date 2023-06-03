@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=50 format=3 uid="uid://dt6brc342ado4"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
@@ -10,14 +10,19 @@
 [ext_resource type="Script" path="res://Scripts/Chest.gd" id="9_dbux8"]
 [ext_resource type="Texture2D" uid="uid://c8r0obcpnbm1d" path="res://Assets/gemasalto.png" id="9_ofccw"]
 [ext_resource type="Texture2D" uid="uid://dfyhsrqwi2joy" path="res://Assets/chest_gema_salto_animation.png" id="10_11fkv"]
-[ext_resource type="PackedScene" uid="uid://bvobdu6sd5fsv" path="res://Escenas/chest.tscn" id="11_4w3xq"]
+[ext_resource type="Texture2D" uid="uid://c8myurmohykf6" path="res://Assets/gemacorrer.png" id="10_nu8bw"]
+[ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="11_v4igl"]
+[ext_resource type="Texture2D" uid="uid://qvjlxocxeees" path="res://Assets/chest_gema_correr_animation-sheet.png" id="12_5dwnh"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
+[ext_resource type="Script" path="res://Scripts/chestrun.gd" id="14_fwaf1"]
 [ext_resource type="PackedScene" uid="uid://d1mvv8ryuntuk" path="res://Escenas/Blaki.tscn" id="14_jysg7"]
 [ext_resource type="PackedScene" uid="uid://cy82cy5ui0wmt" path="res://Escenas/portal.tscn" id="15_2ccp8"]
 [ext_resource type="Texture2D" uid="uid://ceqxtmilhrh6k" path="res://Assets/checkpoint-sheet-sheet.png" id="15_7oy8a"]
 [ext_resource type="Script" path="res://Scripts/spike.gd" id="15_ouvhg"]
+[ext_resource type="Texture2D" uid="uid://bo653b0wneg6d" path="res://Assets/chest_gema_doble_salto_animation-sheet.png" id="16_nof0p"]
+[ext_resource type="Script" path="res://Scripts/chestdoublejump.gd" id="16_scmox"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjaqq"]
 load_path = "res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"
@@ -82,23 +87,7 @@ sources/3 = SubResource("TileSetAtlasSource_cffgq")
 size = Vector2(3613, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdgyk"]
-size = Vector2(163.5, 260.5)
-
-[sub_resource type="Animation" id="Animation_t5fym"]
-resource_name = "open"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13]
-}
+size = Vector2(230.375, 260.5)
 
 [sub_resource type="Animation" id="Animation_qljfh"]
 length = 0.001
@@ -113,6 +102,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_t5fym"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_gqk61"]
@@ -135,6 +139,58 @@ _data = {
 "RESET": SubResource("Animation_qljfh"),
 "open": SubResource("Animation_t5fym"),
 "opened": SubResource("Animation_gqk61")
+}
+
+[sub_resource type="Animation" id="Animation_tcrue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ap1i1"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 14]
+}
+
+[sub_resource type="Animation" id="Animation_1htjm"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tntky"]
+_data = {
+"RESET": SubResource("Animation_tcrue"),
+"open": SubResource("Animation_ap1i1"),
+"opened": SubResource("Animation_1htjm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gg47d"]
@@ -278,10 +334,19 @@ theme_override_fonts/font = ExtResource("6_vg22x")
 theme_override_font_sizes/font_size = 35
 
 [node name="GemaSaltoUI" type="Sprite2D" parent="CanvasLayer"]
-visible = false
-position = Vector2(1492, 120)
+position = Vector2(1492, 152)
 scale = Vector2(6, 6)
 texture = ExtResource("9_ofccw")
+
+[node name="GemaCorrerUI" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1618, 152)
+scale = Vector2(6, 6)
+texture = ExtResource("10_nu8bw")
+
+[node name="GemaDobleSaltoUI" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(1740, 153)
+scale = Vector2(6, 6)
+texture = ExtResource("11_v4igl")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
@@ -317,20 +382,43 @@ libraries = {
 }
 
 [node name="Chest2" type="Area2D" parent="."]
-script = ExtResource("9_dbux8")
+script = ExtResource("14_fwaf1")
 metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
-position = Vector2(1347, 892)
-shape = SubResource("RectangleShape2D_pdgyk")
-metadata/_edit_lock_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Chest2"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Chest2"]
+position = Vector2(1264, 950)
+scale = Vector2(6, 6)
+texture = ExtResource("12_5dwnh")
+hframes = 16
 
-[node name="Chest3" parent="." instance=ExtResource("11_4w3xq")]
-position = Vector2(1494, -65)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
+position = Vector2(1350.19, 892)
+shape = SubResource("RectangleShape2D_pdgyk")
+debug_color = Color(0, 0.541176, 0.956863, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chest2"]
+libraries = {
+"": SubResource("AnimationLibrary_tntky")
+}
+
+[node name="Chest3" type="Area2D" parent="."]
+script = ExtResource("16_scmox")
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest3"]
+position = Vector2(2232, 886)
+scale = Vector2(6, 6)
+texture = ExtResource("16_nof0p")
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest3"]
+position = Vector2(2308, 829)
+shape = SubResource("RectangleShape2D_pdgyk")
+debug_color = Color(0, 0.541176, 0.956863, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chest3"]
+libraries = {
+"": SubResource("AnimationLibrary_tntky")
+}
 
 [node name="Key2" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(1025, 941)
@@ -443,6 +531,9 @@ metadata/_edit_lock_ = true
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="animation_finished" from="Chest/AnimationPlayer" to="Chest" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
+[connection signal="animation_finished" from="Chest2/AnimationPlayer" to="Chest2" method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="Chest3" to="Chest3" method="_on_body_entered"]
+[connection signal="animation_finished" from="Chest3/AnimationPlayer" to="Chest3" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]
 [connection signal="animation_finished" from="Checkpoint/AnimationPlayer" to="Checkpoint" method="_on_animation_player_animation_finished"]
