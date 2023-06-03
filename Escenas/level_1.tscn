@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://vpy637uo1u5s"]
+[gd_scene load_steps=41 format=3 uid="uid://vpy637uo1u5s"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="6_6ct2o"]
 [ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="6_vg22x"]
 [ext_resource type="Script" path="res://Scripts/Chest.gd" id="9_dbux8"]
-[ext_resource type="Texture2D" uid="uid://4j6a3xba7oot" path="res://Assets/chest_closed.png" id="11_3ruer"]
+[ext_resource type="Texture2D" uid="uid://c8r0obcpnbm1d" path="res://Assets/gemasalto.png" id="9_ofccw"]
+[ext_resource type="Texture2D" uid="uid://dfyhsrqwi2joy" path="res://Assets/chest_gema_salto_animation.png" id="10_11fkv"]
 [ext_resource type="PackedScene" uid="uid://bvobdu6sd5fsv" path="res://Escenas/chest.tscn" id="11_4w3xq"]
-[ext_resource type="Texture2D" uid="uid://jpwkif8e81v0" path="res://Assets/Chest_open.png" id="12_dkjh4"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
 [ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="14_6smgm"]
@@ -81,36 +81,27 @@ sources/3 = SubResource("TileSetAtlasSource_cffgq")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2yqm"]
 size = Vector2(3613, 62)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pe64d"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_3ruer")
-}],
-"loop": true,
-"name": &"closed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_dkjh4")
-}],
-"loop": true,
-"name": &"open",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdgyk"]
 size = Vector2(163.5, 260.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg47d"]
-size = Vector2(56, 45.9975)
+[sub_resource type="Animation" id="Animation_t5fym"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 13]
+}
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
-size = Vector2(238, 160)
-
-[sub_resource type="Animation" id="Animation_r5ws1"]
-resource_name = "iddle"
+[sub_resource type="Animation" id="Animation_qljfh"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -123,6 +114,34 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+
+[sub_resource type="Animation" id="Animation_gqk61"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aviru"]
+_data = {
+"RESET": SubResource("Animation_qljfh"),
+"open": SubResource("Animation_t5fym"),
+"opened": SubResource("Animation_gqk61")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gg47d"]
+size = Vector2(56, 45.9975)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctoh5"]
+size = Vector2(238, 160)
 
 [sub_resource type="Animation" id="Animation_rlmet"]
 length = 0.001
@@ -153,6 +172,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [1, 2, 3, 4, 5, 7, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_r5ws1"]
+resource_name = "iddle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_umgdv"]
@@ -243,6 +277,12 @@ offset_bottom = 191.0
 theme_override_fonts/font = ExtResource("6_vg22x")
 theme_override_font_sizes/font_size = 35
 
+[node name="GemaSaltoUI" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(1492, 120)
+scale = Vector2(6, 6)
+texture = ExtResource("9_ofccw")
+
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
 tile_set = SubResource("TileSet_ogw1u")
@@ -252,7 +292,7 @@ layer_0/tile_data = PackedInt32Array(983065, 262145, 0, 1048602, 1, 0, 1048603, 
 
 [node name="Suelo" type="StaticBody2D" parent="."]
 collision_layer = 2
-collision_mask = 13
+collision_mask = 29
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo"]
 position = Vector2(1840.5, 1055)
@@ -260,31 +300,34 @@ shape = SubResource("RectangleShape2D_a2yqm")
 
 [node name="Chest" type="Area2D" parent="."]
 script = ExtResource("9_dbux8")
-metadata/_edit_lock_ = true
 
-[node name="Animation" type="AnimatedSprite2D" parent="Chest"]
-position = Vector2(818, 958)
-scale = Vector2(5, 5.975)
-sprite_frames = SubResource("SpriteFrames_pe64d")
-animation = &"closed"
+[node name="Sprite2D" type="Sprite2D" parent="Chest"]
+position = Vector2(724, 951)
+scale = Vector2(6, 6.1)
+texture = ExtResource("10_11fkv")
+hframes = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest"]
-position = Vector2(814.25, 894)
+position = Vector2(814.25, 893)
 shape = SubResource("RectangleShape2D_pdgyk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chest"]
+libraries = {
+"": SubResource("AnimationLibrary_aviru")
+}
 
 [node name="Chest2" type="Area2D" parent="."]
 script = ExtResource("9_dbux8")
 metadata/_edit_lock_ = true
 
-[node name="Animation" type="AnimatedSprite2D" parent="Chest2"]
-position = Vector2(1348, 959)
-scale = Vector2(5, 5.975)
-sprite_frames = SubResource("SpriteFrames_pe64d")
-animation = &"closed"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest2"]
 position = Vector2(1347, 892)
 shape = SubResource("RectangleShape2D_pdgyk")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Chest2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Chest2"]
 
 [node name="Chest3" parent="." instance=ExtResource("11_4w3xq")]
 position = Vector2(1494, -65)
@@ -381,6 +424,7 @@ collision_mask = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-2, 515)
 shape = SubResource("RectangleShape2D_qa813")
+metadata/_edit_lock_ = true
 
 [node name="Portal" parent="." instance=ExtResource("15_2ccp8")]
 position = Vector2(2837, 800)
@@ -390,13 +434,14 @@ scale = Vector2(5, 5)
 position = Vector2(2072, 928)
 
 [node name="SpawnGemaSalto" type="Node2D" parent="."]
-position = Vector2(737, 821)
+position = Vector2(709, 676)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpawnGemaSalto"]
 texture = ExtResource("4_31b13")
 metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
+[connection signal="animation_finished" from="Chest/AnimationPlayer" to="Chest" method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="Chest2" to="Chest2" method="_on_body_entered"]
 [connection signal="body_entered" from="Live" to="Live" method="_on_body_entered"]
 [connection signal="body_entered" from="Checkpoint" to="Checkpoint" method="_on_body_entered"]

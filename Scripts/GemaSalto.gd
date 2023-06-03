@@ -1,3 +1,2 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-var gravity = 10

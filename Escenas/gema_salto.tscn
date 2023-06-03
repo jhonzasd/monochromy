@@ -3,10 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/GemaSalto.gd" id="1_rfdip"]
 [ext_resource type="Texture2D" uid="uid://bjuoosw1ff0b4" path="res://Assets/gemasalto.png" id="2_mxh2y"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yr7vn"]
-radius = 41.0122
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ifgh"]
+size = Vector2(80, 75)
 
-[node name="GemaSalto" type="CharacterBody2D"]
+[node name="GemaSalto" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 3
+mass = 0.01
 script = ExtResource("1_rfdip")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,4 +17,5 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_mxh2y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_yr7vn")
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_4ifgh")

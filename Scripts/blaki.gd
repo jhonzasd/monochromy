@@ -51,6 +51,4 @@ func detect():
 
 func _on_area_2d_body_entered(body): # Al tocarlo por arriba muere
 	if body.is_in_group("player"):
-		queue_free()
-
-
+		animation.play("die")

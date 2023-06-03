@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8r0obcpnbm1d"
-path="res://.godot/imported/gemasalto.png-ab92ff15cc23aed2c9ae6a9081d152a1.ctex"
+uid="uid://dfyhsrqwi2joy"
+path="res://.godot/imported/chest_gema_salto_animation.png-20a2d72e9a776f3b6d67f882102136c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/gemasalto.png"
-dest_files=["res://.godot/imported/gemasalto.png-ab92ff15cc23aed2c9ae6a9081d152a1.ctex"]
+source_file="res://Assets/chest_gema_salto_animation.png"
+dest_files=["res://.godot/imported/chest_gema_salto_animation.png-20a2d72e9a776f3b6d67f882102136c8.ctex"]
 
 [params]
 

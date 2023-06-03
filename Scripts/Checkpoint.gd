@@ -13,8 +13,6 @@ func _on_body_entered(body):
 	else:
 		animation.play("iddle")
 
-
-
 func _on_animation_player_animation_finished(grab):
 	animation.play("iddle2")
 	animation_played = true
