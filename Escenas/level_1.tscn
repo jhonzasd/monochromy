@@ -1,17 +1,12 @@
-[gd_scene load_steps=50 format=3 uid="uid://dt6brc342ado4"]
+[gd_scene load_steps=45 format=3 uid="uid://dt6brc342ado4"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
 [ext_resource type="PackedScene" uid="uid://b06sp8jyxe4e2" path="res://Escenas/key.tscn" id="3_moo0h"]
 [ext_resource type="Texture2D" uid="uid://b7vlffb4tn0au" path="res://icon.svg" id="4_31b13"]
-[ext_resource type="Script" path="res://Scripts/UIscript.gd" id="5_1fsjc"]
-[ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="6_6ct2o"]
-[ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="6_vg22x"]
+[ext_resource type="PackedScene" uid="uid://cqg3ms4u2mb78" path="res://user_interface.tscn" id="5_fcjld"]
 [ext_resource type="Script" path="res://Scripts/Chest.gd" id="9_dbux8"]
-[ext_resource type="Texture2D" uid="uid://c8r0obcpnbm1d" path="res://Assets/gemasalto.png" id="9_ofccw"]
 [ext_resource type="Texture2D" uid="uid://dfyhsrqwi2joy" path="res://Assets/chest_gema_salto_animation.png" id="10_11fkv"]
-[ext_resource type="Texture2D" uid="uid://c8myurmohykf6" path="res://Assets/gemacorrer.png" id="10_nu8bw"]
-[ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="11_v4igl"]
 [ext_resource type="Texture2D" uid="uid://qvjlxocxeees" path="res://Assets/chest_gema_correr_animation-sheet.png" id="12_5dwnh"]
 [ext_resource type="Script" path="res://Scripts/Live.gd" id="12_xivp1"]
 [ext_resource type="Script" path="res://Scripts/Checkpoint.gd" id="13_at80y"]
@@ -304,49 +299,7 @@ scale = Vector2(1.00488, 1)
 texture = ExtResource("4_31b13")
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("5_1fsjc")
-
-[node name="KeyUI" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(114, 166)
-scale = Vector2(6, 6)
-texture = ExtResource("6_6ct2o")
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 149.0
-offset_top = 132.0
-offset_right = 271.0
-offset_bottom = 199.0
-theme_override_fonts/font = ExtResource("6_vg22x")
-theme_override_font_sizes/font_size = 35
-
-[node name="LiveUI" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(294, 160)
-scale = Vector2(7, 7)
-texture = ExtResource("14_6smgm")
-
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 344.0
-offset_top = 135.0
-offset_right = 451.0
-offset_bottom = 191.0
-theme_override_fonts/font = ExtResource("6_vg22x")
-theme_override_font_sizes/font_size = 35
-
-[node name="GemaSaltoUI" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1492, 152)
-scale = Vector2(6, 6)
-texture = ExtResource("9_ofccw")
-
-[node name="GemaCorrerUI" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1618, 152)
-scale = Vector2(6, 6)
-texture = ExtResource("10_nu8bw")
-
-[node name="GemaDobleSaltoUI" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1740, 153)
-scale = Vector2(6, 6)
-texture = ExtResource("11_v4igl")
+[node name="CanvasLayer" parent="." instance=ExtResource("5_fcjld")]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
@@ -520,13 +473,6 @@ scale = Vector2(5, 5)
 
 [node name="Key3" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(2072, 928)
-
-[node name="SpawnGemaSalto" type="Node2D" parent="."]
-position = Vector2(709, 676)
-
-[node name="Sprite2D" type="Sprite2D" parent="SpawnGemaSalto"]
-texture = ExtResource("4_31b13")
-metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="animation_finished" from="Chest/AnimationPlayer" to="Chest" method="_on_animation_player_animation_finished"]

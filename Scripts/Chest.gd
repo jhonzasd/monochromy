@@ -1,5 +1,7 @@
 extends Area2D
+
 @onready var animation = $AnimationPlayer
+
 var chest_is_open : bool = false
 
 func _on_body_entered(body):
@@ -10,6 +12,7 @@ func _on_body_entered(body):
 		print(get_parent().chests)
 		chest_is_open = true
 		animation.play("open")
+		
 		
 		
 		

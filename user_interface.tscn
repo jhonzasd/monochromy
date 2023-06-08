@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=3 uid="uid://cqg3ms4u2mb78"]
+
+[ext_resource type="Script" path="res://Scripts/UIscript.gd" id="1_cxfdv"]
+[ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="2_jvw8m"]
+[ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="3_v6yyt"]
+[ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="4_u7uw5"]
+[ext_resource type="Texture2D" uid="uid://c8r0obcpnbm1d" path="res://Assets/gemasalto.png" id="5_lyfsy"]
+[ext_resource type="Texture2D" uid="uid://c8myurmohykf6" path="res://Assets/gemacorrer.png" id="6_t4ww8"]
+[ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="7_qqhh6"]
+[ext_resource type="Texture2D" uid="uid://cohytqqw33hfk" path="res://gemayumpa_popupanimation.png" id="8_ux72l"]
+[ext_resource type="FontFile" uid="uid://cjjadacdmxkj4" path="res://Fonts/DePixelBreit.ttf" id="9_d5l7u"]
+[ext_resource type="Texture2D" uid="uid://hsgpbeub6tyj" path="res://Fonts/space icon.png" id="10_fqb0d"]
+
+[sub_resource type="Animation" id="Animation_ok5jv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uxnug"]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 5, 4, 2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_j2ia7"]
+resource_name = "entrada"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_qsdvw"]
+resource_name = "iddle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckeyu"]
+_data = {
+"RESET": SubResource("Animation_ok5jv"),
+"entrada": SubResource("Animation_j2ia7"),
+"iddle": SubResource("Animation_qsdvw"),
+"out": SubResource("Animation_uxnug")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_cxfdv")
+
+[node name="KeyUI" type="Sprite2D" parent="."]
+position = Vector2(114, 166)
+scale = Vector2(6, 6)
+texture = ExtResource("2_jvw8m")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 149.0
+offset_top = 132.0
+offset_right = 271.0
+offset_bottom = 199.0
+theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_font_sizes/font_size = 35
+
+[node name="LiveUI" type="Sprite2D" parent="."]
+position = Vector2(294, 160)
+scale = Vector2(7, 7)
+texture = ExtResource("4_u7uw5")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 135.0
+offset_right = 451.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_font_sizes/font_size = 35
+
+[node name="GemaSaltoUI" type="Sprite2D" parent="."]
+position = Vector2(1492, 152)
+scale = Vector2(6, 6)
+texture = ExtResource("5_lyfsy")
+
+[node name="GemaCorrerUI" type="Sprite2D" parent="."]
+position = Vector2(1618, 152)
+scale = Vector2(6, 6)
+texture = ExtResource("6_t4ww8")
+
+[node name="GemaDobleSaltoUI" type="Sprite2D" parent="."]
+position = Vector2(1740, 153)
+scale = Vector2(6, 6)
+texture = ExtResource("7_qqhh6")
+
+[node name="PopUpGemaSalto" type="Sprite2D" parent="."]
+position = Vector2(1015, 600)
+scale = Vector2(9, 9)
+texture = ExtResource("8_ux72l")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PopUpGemaSalto"]
+libraries = {
+"": SubResource("AnimationLibrary_ckeyu")
+}
+
+[node name="YumpaText" type="Label" parent="."]
+offset_left = 795.0
+offset_top = 529.0
+offset_right = 1060.0
+offset_bottom = 599.0
+theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_font_sizes/font_size = 41
+text = "Yumpa"
+
+[node name="DescriptionText" type="Label" parent="."]
+offset_left = 724.0
+offset_top = 598.0
+offset_right = 1320.0
+offset_bottom = 700.0
+theme_override_fonts/font = ExtResource("9_d5l7u")
+theme_override_font_sizes/font_size = 29
+text = "
+Te permitirá saltar, 
+usa          para utilizar su poder"
+
+[node name="GemaText" type="Label" parent="."]
+offset_left = 822.0
+offset_top = 481.0
+offset_right = 1087.0
+offset_bottom = 551.0
+theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_font_sizes/font_size = 36
+text = "GEMA
+"
+
+[node name="SpaceIcon" type="Sprite2D" parent="."]
+position = Vector2(855, 688)
+rotation = 0.137594
+scale = Vector2(0.202393, 0.181396)
+texture = ExtResource("10_fqb0d")
+
+[connection signal="animation_finished" from="PopUpGemaSalto/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

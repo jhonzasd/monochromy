@@ -14,7 +14,10 @@ var player = load("res://Escenas/player.tscn")
 
 #var gema_salto = false # El jugador no ha llegado a la gema
 #var gema = load("res://Escenas/gema_salto.tscn")
-
+func _physics_process(delta):
+	if lives < 0:
+		get_tree().reload_current_scene()
+		
 func _ready():
 	respawn()
 #	aparecer_gema()
