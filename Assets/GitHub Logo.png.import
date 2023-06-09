@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cohytqqw33hfk"
-path="res://.godot/imported/gemayumpa_popupanimation.png-001767b57f2ab8ce30999f0304eec70c.ctex"
+uid="uid://cpjigaw00hiwf"
+path="res://.godot/imported/GitHub Logo.png-d41a6adc93cdf2d66817b33f99ca3f2a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gemayumpa_popupanimation.png"
-dest_files=["res://.godot/imported/gemayumpa_popupanimation.png-001767b57f2ab8ce30999f0304eec70c.ctex"]
+source_file="res://Assets/GitHub Logo.png"
+dest_files=["res://.godot/imported/GitHub Logo.png-d41a6adc93cdf2d66817b33f99ca3f2a.ctex"]
 
 [params]
 
