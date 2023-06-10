@@ -1,58 +1,58 @@
 [gd_scene load_steps=10 format=3 uid="uid://cqg3ms4u2mb78"]
 
-[ext_resource type="Script" path="res://Scripts/UIscript.gd" id="1_cxfdv"]
-[ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="2_jvw8m"]
-[ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="3_v6yyt"]
-[ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="4_u7uw5"]
-[ext_resource type="Texture2D" uid="uid://c8r0obcpnbm1d" path="res://Assets/gemasalto.png" id="5_lyfsy"]
-[ext_resource type="Texture2D" uid="uid://c8myurmohykf6" path="res://Assets/gemacorrer.png" id="6_t4ww8"]
-[ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="7_qqhh6"]
-[ext_resource type="FontFile" uid="uid://cjjadacdmxkj4" path="res://Fonts/DePixelBreit.ttf" id="9_d5l7u"]
-[ext_resource type="Texture2D" uid="uid://hsgpbeub6tyj" path="res://Fonts/space icon.png" id="10_fqb0d"]
+[ext_resource type="Script" path="res://Scripts/UIscript.gd" id="1_u1ue1"]
+[ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="2_kadce"]
+[ext_resource type="FontFile" uid="uid://dplfsv3u50xr1" path="res://Fonts/8-bit-hud.ttf" id="3_v0f51"]
+[ext_resource type="Texture2D" uid="uid://c2r6hc60m5au7" path="res://Assets/Vida.png" id="4_pe8vv"]
+[ext_resource type="Texture2D" uid="uid://c8r0obcpnbm1d" path="res://Assets/gemasalto.png" id="5_lh0rc"]
+[ext_resource type="Texture2D" uid="uid://c8myurmohykf6" path="res://Assets/gemacorrer.png" id="6_ofg7t"]
+[ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="7_8rslu"]
+[ext_resource type="Texture2D" uid="uid://hsgpbeub6tyj" path="res://Fonts/space icon.png" id="8_36h88"]
+[ext_resource type="FontFile" uid="uid://cjjadacdmxkj4" path="res://Fonts/DePixelBreit.ttf" id="9_uj277"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
-script = ExtResource("1_cxfdv")
+script = ExtResource("1_u1ue1")
 
 [node name="KeyUI" type="Sprite2D" parent="."]
 position = Vector2(114, 166)
 scale = Vector2(6, 6)
-texture = ExtResource("2_jvw8m")
+texture = ExtResource("2_kadce")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 149.0
 offset_top = 132.0
 offset_right = 271.0
 offset_bottom = 199.0
-theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_fonts/font = ExtResource("3_v0f51")
 theme_override_font_sizes/font_size = 35
 
 [node name="LiveUI" type="Sprite2D" parent="."]
 position = Vector2(294, 160)
 scale = Vector2(7, 7)
-texture = ExtResource("4_u7uw5")
+texture = ExtResource("4_pe8vv")
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 344.0
 offset_top = 135.0
 offset_right = 451.0
 offset_bottom = 191.0
-theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_fonts/font = ExtResource("3_v0f51")
 theme_override_font_sizes/font_size = 35
 
 [node name="GemaSaltoUI" type="Sprite2D" parent="."]
 position = Vector2(1492, 152)
 scale = Vector2(6, 6)
-texture = ExtResource("5_lyfsy")
+texture = ExtResource("5_lh0rc")
 
 [node name="GemaCorrerUI" type="Sprite2D" parent="."]
 position = Vector2(1618, 152)
 scale = Vector2(6, 6)
-texture = ExtResource("6_t4ww8")
+texture = ExtResource("6_ofg7t")
 
 [node name="GemaDobleSaltoUI" type="Sprite2D" parent="."]
 position = Vector2(1740, 153)
 scale = Vector2(6, 6)
-texture = ExtResource("7_qqhh6")
+texture = ExtResource("7_8rslu")
 
 [node name="GemaYumpa" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -61,14 +61,14 @@ follow_viewport_enabled = true
 position = Vector2(855, 688)
 rotation = 0.137594
 scale = Vector2(0.202393, 0.181396)
-texture = ExtResource("10_fqb0d")
+texture = ExtResource("8_36h88")
 
 [node name="GemaText" type="Label" parent="GemaYumpa"]
 offset_left = 822.0
 offset_top = 481.0
 offset_right = 1087.0
 offset_bottom = 551.0
-theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_fonts/font = ExtResource("3_v0f51")
 theme_override_font_sizes/font_size = 36
 text = "GEMA
 "
@@ -78,7 +78,7 @@ offset_left = 724.0
 offset_top = 598.0
 offset_right = 1320.0
 offset_bottom = 700.0
-theme_override_fonts/font = ExtResource("9_d5l7u")
+theme_override_fonts/font = ExtResource("9_uj277")
 theme_override_font_sizes/font_size = 29
 text = "
 Te permitirá saltar, 
@@ -89,6 +89,6 @@ offset_left = 795.0
 offset_top = 529.0
 offset_right = 1060.0
 offset_bottom = 599.0
-theme_override_fonts/font = ExtResource("3_v6yyt")
+theme_override_fonts/font = ExtResource("3_v0f51")
 theme_override_font_sizes/font_size = 41
 text = "Yumpa"

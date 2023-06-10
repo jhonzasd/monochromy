@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_l4g7j"]
 [ext_resource type="Texture2D" uid="uid://cbwt0y7t4tjnn" path="res://Assets/mrwhite_walking_and_jumping_spritesheet.png" id="2_fp7mj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcjjy"]
-size = Vector2(33.2, 66.2001)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yyy3t"]
+radius = 13.6364
+height = 67.2727
 
 [sub_resource type="Animation" id="Animation_haqhw"]
 length = 0.001
@@ -81,7 +82,7 @@ _data = {
 size = Vector2(19.6, 2.40001)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2.2, 2.2)
 collision_mask = 30
 script = ExtResource("1_l4g7j")
 
@@ -93,8 +94,8 @@ hframes = 10
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.199998, 10.3)
-shape = SubResource("RectangleShape2D_qcjjy")
+position = Vector2(0.909091, 10)
+shape = SubResource("CapsuleShape2D_yyy3t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 1.65

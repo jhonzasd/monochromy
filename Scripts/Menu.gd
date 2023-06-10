@@ -5,7 +5,7 @@ func _ready():
 	$GitHub/Label2.visible = false
 	
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Escenas/level_1.tscn")
+	get_tree().change_scene_to_file("res://nivel_1.tscn")
 
 
 func _on_quit_pressed():

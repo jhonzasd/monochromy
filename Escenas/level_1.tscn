@@ -1,10 +1,9 @@
-[gd_scene load_steps=45 format=3 uid="uid://dt6brc342ado4"]
+[gd_scene load_steps=43 format=3 uid="uid://nem7mvdsf8vm"]
 
 [ext_resource type="Script" path="res://Scripts/keyScoreController.gd" id="1_4anx1"]
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_c1mje"]
 [ext_resource type="PackedScene" uid="uid://b06sp8jyxe4e2" path="res://Escenas/key.tscn" id="3_moo0h"]
 [ext_resource type="Texture2D" uid="uid://b7vlffb4tn0au" path="res://icon.svg" id="4_31b13"]
-[ext_resource type="PackedScene" uid="uid://cqg3ms4u2mb78" path="res://user_interface.tscn" id="5_fcjld"]
 [ext_resource type="Script" path="res://Scripts/Chest.gd" id="9_dbux8"]
 [ext_resource type="Texture2D" uid="uid://dfyhsrqwi2joy" path="res://Assets/chest_gema_salto_animation.png" id="10_11fkv"]
 [ext_resource type="Texture2D" uid="uid://qvjlxocxeees" path="res://Assets/chest_gema_correr_animation-sheet.png" id="12_5dwnh"]
@@ -18,65 +17,8 @@
 [ext_resource type="Script" path="res://Scripts/spike.gd" id="15_ouvhg"]
 [ext_resource type="Texture2D" uid="uid://bo653b0wneg6d" path="res://Assets/chest_gema_doble_salto_animation-sheet.png" id="16_nof0p"]
 [ext_resource type="Script" path="res://Scripts/chestdoublejump.gd" id="16_scmox"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjaqq"]
-load_path = "res://.godot/imported/Tilesetmonochromy.png-f191cc78a3237ab9cc07f78179329957.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vmlpi"]
-texture = SubResource("CompressedTexture2D_kjaqq")
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rr0qq"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cffgq"]
-texture = SubResource("CompressedTexture2D_rr0qq")
-0:3/0 = 0
-0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:3/0/physics_layer_0/angular_velocity = 0.0
-1:3/0 = 0
-1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:3/0/physics_layer_0/angular_velocity = 0.0
-0:4/0 = 0
-0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:4/0/physics_layer_0/angular_velocity = 0.0
-1:4/0 = 0
-1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:4/0/physics_layer_0/angular_velocity = 0.0
-2:4/0 = 0
-2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:4/0/physics_layer_0/angular_velocity = 0.0
-3:4/0 = 0
-3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:4/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSet" id="TileSet_ogw1u"]
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 13
-sources/1 = SubResource("TileSetAtlasSource_vmlpi")
-sources/3 = SubResource("TileSetAtlasSource_cffgq")
+[ext_resource type="PackedScene" uid="uid://cqg3ms4u2mb78" path="res://Escenas/user_interface.tscn" id="18_6trvu"]
+[ext_resource type="Texture2D" uid="uid://bdfylnr037fch" path="res://Assets/Tilesetmonochromy.png" id="19_abid3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2yqm"]
 size = Vector2(3613, 62)
@@ -276,6 +218,20 @@ size = Vector2(256, 61)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qa813"]
 size = Vector2(70, 1026)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bkgr3"]
+texture = ExtResource("19_abid3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_iv6w2"]
+sources/0 = SubResource("TileSetAtlasSource_bkgr3")
+
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_4anx1")
 metadata/_edit_horizontal_guides_ = []
@@ -298,15 +254,6 @@ position = Vector2(17, 2)
 scale = Vector2(1.00488, 1)
 texture = ExtResource("4_31b13")
 metadata/_edit_lock_ = true
-
-[node name="CanvasLayer" parent="." instance=ExtResource("5_fcjld")]
-
-[node name="TileMap" type="TileMap" parent="."]
-scale = Vector2(4, 4)
-tile_set = SubResource("TileSet_ogw1u")
-format = 2
-layer_0/name = "Tilemap"
-layer_0/tile_data = PackedInt32Array(983065, 262145, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 1, 0, 1048605, 1, 0, 1048606, 1, 0, 1048607, 1, 0, 1048608, 1, 0, 1048609, 1, 0, 1048610, 1, 0, 1048611, 1, 0, 1048612, 1, 0, 983075, 1, 0, 983074, 1, 0, 983076, 1, 0, 983077, 1, 0, 917543, 1, 0, 917544, 1, 0, 917545, 1, 0, 917546, 1, 0, 1048613, 1, 0, 1048614, 1, 0, 1048615, 1, 0, 1048616, 1, 0, 1048617, 1, 0, 1048618, 1, 0, 1048619, 1, 0, 1048620, 1, 0, 1048621, 1, 0, 1048622, 1, 0, 1048623, 1, 0, 1048629, 1, 0, 1048630, 1, 0, 1048631, 1, 0, 1048632, 1, 0, 1048628, 1, 0, 1048627, 1, 0, 1048626, 1, 0, 1048625, 1, 0, 1048624, 1, 0, 1048576, 1, 0, 1048577, 1, 0, 1048578, 1, 0, 1048579, 1, 0, 1048580, 1, 0, 1048581, 1, 0, 1048582, 1, 0, 1048583, 1, 0, 1048584, 1, 0, 1048585, 1, 0, 1048586, 1, 0, 1048587, 1, 0, 1048588, 1, 0, 1048589, 1, 0, 1048590, 1, 0, 1048591, 1, 0, 1048592, 1, 0, 1048593, 1, 0, 1048594, 1, 0, 1048595, 1, 0, 1048596, 1, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0)
 
 [node name="Suelo" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -473,6 +420,14 @@ scale = Vector2(5, 5)
 
 [node name="Key3" parent="." instance=ExtResource("3_moo0h")]
 position = Vector2(2072, 928)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("18_6trvu")]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_iv6w2")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1048607, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 983074, 0, 0, 983075, 0, 0, 983076, 0, 0, 983077, 0, 0, 1048611, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1048615, 0, 0, 1048616, 0, 0, 1048617, 0, 0, 1048618, 0, 0, 1048619, 0, 0, 1048620, 0, 0, 1048621, 0, 0, 1048622, 0, 0, 1048623, 0, 0, 1048624, 0, 0, 1048625, 0, 0, 1048626, 0, 0, 1048627, 0, 0, 1048628, 0, 0, 1048629, 0, 0, 1048630, 0, 0, 1048631, 0, 0, 1048632, 0, 0, 917543, 65536, 0, 917544, 131072, 0, 983065, 262144, 0, 917546, 196608, 0, 917545, 131072, 0)
 
 [connection signal="body_entered" from="Chest" to="Chest" method="_on_body_entered"]
 [connection signal="animation_finished" from="Chest/AnimationPlayer" to="Chest" method="_on_animation_player_animation_finished"]

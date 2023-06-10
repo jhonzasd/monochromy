@@ -94,6 +94,7 @@ scale = Vector2(0.04, 0.04)
 texture = ExtResource("6_qlavy")
 
 [node name="Label2" type="Label" parent="GitHub"]
+layout_mode = 0
 offset_left = 99.0
 offset_top = 24.0
 offset_right = 597.0
