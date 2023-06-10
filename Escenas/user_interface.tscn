@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqg3ms4u2mb78"]
+[gd_scene load_steps=11 format=3 uid="uid://cqg3ms4u2mb78"]
 
 [ext_resource type="Script" path="res://Scripts/UIscript.gd" id="1_u1ue1"]
 [ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="2_kadce"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="7_8rslu"]
 [ext_resource type="Texture2D" uid="uid://hsgpbeub6tyj" path="res://Fonts/space icon.png" id="8_36h88"]
 [ext_resource type="FontFile" uid="uid://cjjadacdmxkj4" path="res://Fonts/DePixelBreit.ttf" id="9_uj277"]
+[ext_resource type="Texture2D" uid="uid://3gr45juyra7a" path="res://1280px-Shift_key.svg.png" id="10_g3us1"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_u1ue1")
@@ -92,3 +93,81 @@ offset_bottom = 599.0
 theme_override_fonts/font = ExtResource("3_v0f51")
 theme_override_font_sizes/font_size = 41
 text = "Yumpa"
+
+[node name="GemaRumpa" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Gema2Text" type="Label" parent="GemaRumpa"]
+offset_left = 176.0
+offset_top = 468.0
+offset_right = 441.0
+offset_bottom = 538.0
+theme_override_fonts/font = ExtResource("3_v0f51")
+theme_override_font_sizes/font_size = 36
+text = "GEMA
+"
+
+[node name="RumpaText" type="Label" parent="GemaRumpa"]
+offset_left = 152.0
+offset_top = 514.0
+offset_right = 417.0
+offset_bottom = 584.0
+theme_override_fonts/font = ExtResource("3_v0f51")
+theme_override_font_sizes/font_size = 41
+text = "Rumpa"
+
+[node name="DescriptionText" type="Label" parent="GemaRumpa"]
+offset_left = 87.0
+offset_top = 567.0
+offset_right = 696.0
+offset_bottom = 713.0
+theme_override_fonts/font = ExtResource("9_uj277")
+theme_override_font_sizes/font_size = 29
+text = "
+Te permitirá correr, 
+usa para utilizar su poder"
+
+[node name="ShiftIcon" type="Sprite2D" parent="GemaRumpa"]
+position = Vector2(286, 728)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_g3us1")
+
+[node name="GemaDoyumpa" type="CanvasLayer" parent="."]
+
+[node name="Gema3Text" type="Label" parent="GemaDoyumpa"]
+offset_left = 1394.0
+offset_top = 478.0
+offset_right = 1659.0
+offset_bottom = 548.0
+theme_override_fonts/font = ExtResource("3_v0f51")
+theme_override_font_sizes/font_size = 36
+text = "GEMA
+"
+
+[node name="DoyumpaText" type="Label" parent="GemaDoyumpa"]
+offset_left = 1342.0
+offset_top = 519.0
+offset_right = 1693.0
+offset_bottom = 589.0
+theme_override_fonts/font = ExtResource("3_v0f51")
+theme_override_font_sizes/font_size = 41
+text = "Doyumpa
+"
+
+[node name="DescriptionText" type="Label" parent="GemaDoyumpa"]
+offset_left = 1310.0
+offset_top = 563.0
+offset_right = 1919.0
+offset_bottom = 709.0
+theme_override_fonts/font = ExtResource("9_uj277")
+theme_override_font_sizes/font_size = 29
+text = "
+Te permitirá dar un salto en el aire, 
+usa                   después de saltar 
+                        para utilizar su poder"
+
+[node name="SpaceIcon" type="Sprite2D" parent="GemaDoyumpa"]
+position = Vector2(1489, 660)
+rotation = 0.137594
+scale = Vector2(0.301702, 0.243558)
+texture = ExtResource("8_36h88")
