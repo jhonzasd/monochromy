@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var gemacorrer = $GemaCorrerUI
 @onready var gemadoblesalto = $GemaDobleSaltoUI
 
+@onready var stamina = $GemaRumpa/TextureProgressBar
  # Listas de nodos
 var popUpGemaYumpa := [] 
 var popUpGemaRumpa := []
@@ -44,9 +45,11 @@ func set_doyumpa_visibility(visible: bool): # Itera sobre la lista de nodos y mo
 	for node in popUpGemaDoyumpa:
 		node.visible = visible
 		
-func _process(delta):
+func _physics_process(delta):
 	$Label.text = str("x") + str(get_parent().keys)
 	$Label2.text = str("x") + str(get_parent().lives)
+	$Label3.text = str("stamina") + str(get_parent().stamina)
+	$TextureProgressBar.value = get_parent().stamina
 	
 	if get_parent().gema_salto == true:
 		gemasalto.visible = true

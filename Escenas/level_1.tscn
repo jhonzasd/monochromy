@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/spike.gd" id="15_ouvhg"]
 [ext_resource type="Texture2D" uid="uid://bo653b0wneg6d" path="res://Assets/chest_gema_doble_salto_animation-sheet.png" id="16_nof0p"]
 [ext_resource type="Script" path="res://Scripts/chestdoublejump.gd" id="16_scmox"]
-[ext_resource type="PackedScene" uid="uid://cqg3ms4u2mb78" path="res://Escenas/user_interface.tscn" id="18_6trvu"]
+[ext_resource type="PackedScene" uid="uid://dl6uruky1doed" path="res://Escenas/user_interface.tscn" id="18_6trvu"]
 [ext_resource type="Texture2D" uid="uid://bdfylnr037fch" path="res://Assets/Tilesetmonochromy.png" id="19_abid3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2yqm"]

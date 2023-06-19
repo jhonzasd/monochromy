@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqg3ms4u2mb78"]
+[gd_scene load_steps=14 format=3 uid="uid://dl6uruky1doed"]
 
 [ext_resource type="Script" path="res://Scripts/UIscript.gd" id="1_u1ue1"]
 [ext_resource type="Texture2D" uid="uid://clb2ijwne1dam" path="res://Assets/keysprite.png" id="2_kadce"]
@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://cc17doouujvcq" path="res://Assets/gemadoblesalto.png" id="7_8rslu"]
 [ext_resource type="Texture2D" uid="uid://hsgpbeub6tyj" path="res://Fonts/space icon.png" id="8_36h88"]
 [ext_resource type="FontFile" uid="uid://cjjadacdmxkj4" path="res://Fonts/DePixelBreit.ttf" id="9_uj277"]
-[ext_resource type="Texture2D" uid="uid://3gr45juyra7a" path="res://1280px-Shift_key.svg.png" id="10_g3us1"]
+[ext_resource type="Texture2D" uid="uid://3gr45juyra7a" path="res://Assets/1280px-Shift_key.svg.png" id="10_jyael"]
+[ext_resource type="Texture2D" uid="uid://dluef0qak6yao" path="res://backgroundstaminabar.png" id="11_1s7i4"]
+[ext_resource type="Texture2D" uid="uid://cdxf1duahq2o8" path="res://Assets/outlinestaminabar.png" id="12_1gwu6"]
+[ext_resource type="Texture2D" uid="uid://c8d7l0qhhgnqv" path="res://Assets/progress_stamina_bar.png" id="13_rxb2b"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_u1ue1")
@@ -50,12 +53,33 @@ position = Vector2(1618, 152)
 scale = Vector2(6, 6)
 texture = ExtResource("6_ofg7t")
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 1465.0
+offset_top = 223.0
+offset_right = 1777.0
+offset_bottom = 293.0
+max_value = 200.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("11_1s7i4")
+texture_over = ExtResource("12_1gwu6")
+texture_progress = ExtResource("13_rxb2b")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 344.0
+offset_top = 135.0
+offset_right = 451.0
+offset_bottom = 191.0
+theme_override_fonts/font = ExtResource("3_v0f51")
+theme_override_font_sizes/font_size = 35
+
 [node name="GemaDobleSaltoUI" type="Sprite2D" parent="."]
 position = Vector2(1740, 153)
 scale = Vector2(6, 6)
 texture = ExtResource("7_8rslu")
 
 [node name="GemaYumpa" type="CanvasLayer" parent="."]
+visible = false
 follow_viewport_enabled = true
 
 [node name="SpaceIcon" type="Sprite2D" parent="GemaYumpa"]
@@ -130,9 +154,11 @@ usa para utilizar su poder"
 [node name="ShiftIcon" type="Sprite2D" parent="GemaRumpa"]
 position = Vector2(286, 728)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("10_g3us1")
+texture = ExtResource("10_jyael")
 
 [node name="GemaDoyumpa" type="CanvasLayer" parent="."]
+visible = false
+follow_viewport_enabled = true
 
 [node name="Gema3Text" type="Label" parent="GemaDoyumpa"]
 offset_left = 1394.0

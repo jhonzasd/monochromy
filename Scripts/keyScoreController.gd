@@ -7,6 +7,7 @@ var gema_doble_salto : bool = false
 var keys : int = 0
 var chests : int = 0
 var lives : int = 3
+var stamina : int = 200
 var died : bool = false
 
 var checkpoint = false # El jugador no ha llegado al checkpoint

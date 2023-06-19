@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cohhefdh4slxm" path="res://Assets/Background.png" id="2_p43yq"]
 [ext_resource type="PackedScene" uid="uid://b06sp8jyxe4e2" path="res://Escenas/key.tscn" id="3_tacqe"]
 [ext_resource type="PackedScene" uid="uid://c42sswhx0mqni" path="res://Escenas/chest_salto.tscn" id="4_qca23"]
-[ext_resource type="PackedScene" uid="uid://cqg3ms4u2mb78" path="res://Escenas/user_interface.tscn" id="5_6cl5n"]
+[ext_resource type="PackedScene" uid="uid://dl6uruky1doed" path="res://Escenas/user_interface.tscn" id="5_6cl5n"]
 [ext_resource type="PackedScene" uid="uid://cy82cy5ui0wmt" path="res://Escenas/portal.tscn" id="6_jnm77"]
 [ext_resource type="PackedScene" uid="uid://crojp87qbe5js" path="res://Escenas/spike.tscn" id="7_vhgvh"]
 [ext_resource type="PackedScene" uid="uid://qgrocpmw3v1d" path="res://Escenas/checkpoint.tscn" id="8_gv41o"]

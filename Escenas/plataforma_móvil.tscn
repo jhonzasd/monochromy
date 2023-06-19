@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bayrv6y28sdhq"]
+
+[ext_resource type="Script" path="res://Escenas/plataforma_móvil.gd" id="1_2vook"]
+[ext_resource type="Texture2D" uid="uid://dlc1v50g8bknm" path="res://Assets/fallingspike.png" id="2_dc7v7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2rmms"]
+size = Vector2(1.40495, 2.19683)
+
+[node name="Plataforma Móvil" type="StaticBody2D"]
+position = Vector2(414, 599)
+scale = Vector2(5, 5)
+script = ExtResource("1_2vook")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.15, 3)
+scale = Vector2(0.20625, 0.138)
+texture = ExtResource("2_dc7v7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.2, 3.2)
+rotation = -1.57305
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2rmms")
