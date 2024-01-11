@@ -233,6 +233,7 @@ texture = ExtResource("19_abid3")
 sources/0 = SubResource("TileSetAtlasSource_bkgr3")
 
 [node name="Level 1" type="Node2D"]
+position = Vector2(29, 0)
 script = ExtResource("1_4anx1")
 metadata/_edit_horizontal_guides_ = []
 

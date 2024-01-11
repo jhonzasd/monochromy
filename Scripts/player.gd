@@ -20,24 +20,26 @@ var is_key_shift_enabled = true
 func _physics_process(delta):
 	var chests = get_parent().chests
 	direccion = Input.get_axis("ui_left","ui_right")
-	if is_on_floor():
-		animation.play("iddle")
+	#if is_on_floor():
+		#animation.play("iddle")
 	# Barra de stamina
 	if get_parent().stamina >= 200:
 		get_parent().stamina = 200
 	collider.position = sprite.position
 	if get_parent().stamina <= 0:
+		get_parent().get_node("CanvasLayer").get_node("TextureProgressBar").set_tint_progress(Color(4, 0, 0, 1))
 		is_key_shift_enabled = false
 		get_parent().stamina = 0
-	else:
+	if get_parent().stamina == 200:
 		is_key_shift_enabled = true
+		get_parent().get_node("CanvasLayer").get_node("TextureProgressBar").set_tint_progress(Color(1, 1, 1, 1))
 		
 	if direccion != 0 and is_on_floor():
 		animation.play("walk")
-	if direccion == 0:
-		get_parent().stamina += 1
 	else:
 		animation.play("iddle")
+	if direccion == 0:
+		get_parent().stamina += 1
 	if chests >= 2 and Input.is_key_pressed(KEY_SHIFT) and is_key_shift_enabled == true:
 		velocity.x = direccion * speed * 2
 		animation.speed_scale = 2.5

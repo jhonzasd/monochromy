@@ -13,8 +13,9 @@ func _on_quit_pressed():
 
 
 func _on_git_hub_pressed():
-	OS.execute("cmd", ["/c", "start", "https://github.com/jhonzasd"])
-
+	OS.execute("cmd", ["/c", "start", "https://github.com/jhonzasd"]) # Windows
+	OS.execute("open", ["https://github.com/jhonzasd"]) # MacOS
+	OS.execute("xdg-open", ["https://github.com/jhonzasd"]) # Linux
 
 func _on_git_hub_mouse_entered():
 	$GitHub/Label2.visible = true

@@ -3,14 +3,16 @@ extends CanvasLayer
 @onready var gemasalto = $GemaSaltoUI
 @onready var gemacorrer = $GemaCorrerUI
 @onready var gemadoblesalto = $GemaDobleSaltoUI
-
-@onready var stamina = $GemaRumpa/TextureProgressBar
+@onready var stamina = $TextureProgressBar
  # Listas de nodos
 var popUpGemaYumpa := [] 
 var popUpGemaRumpa := []
 var popUpGemaDoyumpa := []
 
 func _ready():
+	$TextureProgressBar.set_tint_progress(Color(1, 1, 1, 1))
+	stamina.visible = false
+	
 	gemasalto.visible = false
 	gemacorrer.visible = false
 	gemadoblesalto.visible = false
@@ -51,12 +53,15 @@ func _physics_process(delta):
 	$Label3.text = str("stamina") + str(get_parent().stamina)
 	$TextureProgressBar.value = get_parent().stamina
 	
+	
+	
 	if get_parent().gema_salto == true:
 		gemasalto.visible = true
 		set_yumpa_visibility(true)
 		
 	if get_parent().gema_correr == true:
 		gemacorrer.visible = true
+		stamina.visible = true
 		set_rumpa_visibility(true)
 		
 	if get_parent().gema_doble_salto == true:

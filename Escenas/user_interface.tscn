@@ -53,19 +53,8 @@ position = Vector2(1618, 152)
 scale = Vector2(6, 6)
 texture = ExtResource("6_ofg7t")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = 1465.0
-offset_top = 223.0
-offset_right = 1777.0
-offset_bottom = 293.0
-max_value = 200.0
-value = 100.0
-nine_patch_stretch = true
-texture_under = ExtResource("11_1s7i4")
-texture_over = ExtResource("12_1gwu6")
-texture_progress = ExtResource("13_rxb2b")
-
 [node name="Label3" type="Label" parent="."]
+visible = false
 offset_left = 344.0
 offset_top = 135.0
 offset_right = 451.0
@@ -77,6 +66,18 @@ theme_override_font_sizes/font_size = 35
 position = Vector2(1740, 153)
 scale = Vector2(6, 6)
 texture = ExtResource("7_8rslu")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 1492.0
+offset_top = 227.0
+offset_right = 1766.0
+offset_bottom = 287.0
+max_value = 200.0
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("11_1s7i4")
+texture_over = ExtResource("12_1gwu6")
+texture_progress = ExtResource("13_rxb2b")
 
 [node name="GemaYumpa" type="CanvasLayer" parent="."]
 visible = false
